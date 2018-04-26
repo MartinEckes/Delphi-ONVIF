@@ -460,6 +460,9 @@ begin
   try
     With idhtp1 do
     begin
+      // >>> me 260418 VSM-383
+      ConnectTimeout := 1000;
+      // <<<
       AllowCookies := True;
       HandleRedirects := True;
       Request.Accept := 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8';
