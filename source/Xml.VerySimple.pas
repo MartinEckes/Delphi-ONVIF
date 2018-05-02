@@ -445,8 +445,6 @@ function TXmlVerySimple.IsSame(const Value1, Value2: String): Boolean;
       System.Delete(Result, 1, i);
     end;
   end;
-var
-RName: Utf8String;
 begin
   if doCaseInsensitive in Options then
     Result := AnsiSameText(RemoveFirst(Value1), Value2) // DRG 25/12/2017
