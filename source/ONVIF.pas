@@ -9,8 +9,12 @@ Uses
   System.Messaging,
   IdUDPServer,
   IdGlobal,
-  IdSocketHandle,
-  FMX.Dialogs
+  IdSocketHandle
+  {$IF Declared(FireMonkeyVersion)}
+  ,FMX.Dialogs
+  {$ELSE}
+  ,VCL.Dialogs
+  {$IFEND}
   {$IFDEF MSWINDOWS}
   ,Winsock
 {$ENDIF MSWINDOWS}
