@@ -964,6 +964,7 @@ begin
       ProtocolVersion := pv1_1;
       HTTPOptions := [hoNoProtocolErrorException, hoWantProtocolErrorContent];
       Get(SnapshotUri, Stream);
+      Result := Stream.Size <> 0;
     end;
   finally
     Uri.Free;
