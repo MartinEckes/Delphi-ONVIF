@@ -1375,13 +1375,18 @@ end;
 constructor TONVIFProbeThread.Create(const ProbeMathNotify: TProbeMathNotify; const ProbeMathXMLNotify: TProbeMathXMLNotify;
 const ProbeTypeSet: TProbeTypeSet; const BindToAllAvailableLocalIPsTypeSet: TBindToAllAvailableLocalIPsTypeSet; const Timeout: Cardinal);
 begin
-  inherited Create(True);
+  inherited Create(False);
   FProbeTypeSet := ProbeTypeSet;
   FBindToAllAvailableLocalIPsTypeSet := BindToAllAvailableLocalIPsTypeSet;
   FTimeout := Timeout;
   FProbeMathNotify := ProbeMathNotify;
   FProbeMathXMLNotify := ProbeMathXMLNotify;
-  Resume;
+
+  // me 020518 CreateSuspended is not needed, because the Thread is started in procedure TThread.AfterConstruction
+  //old:
+  // inherited Create(True);
+  // ..
+  // Resume;
 end;
 
 procedure TONVIFProbeThread.Execute;
