@@ -48,6 +48,7 @@ Type
     XAddrs: String;
     XAddrsV6: string;
     MetadataVersion: Integer;
+    UUID: string;
     XML: String;
   end;
 
@@ -1259,6 +1260,16 @@ begin
             Result := True;
           end;
 
+        end;
+      end;
+      XmlNode := XmlNode.Find('EndpointReference');
+      if Assigned(XmlNode) then
+      begin
+        Node := XmlNode.Find('Address');
+        if Assigned(Node) then
+        begin
+          S := Trim(string(Node.Text));
+          ProbeMatch.UUID :=  s;
         end;
       end;
     end;
